@@ -3,7 +3,7 @@ const express = require('express');
 // source in bodyParser
 const bodyParser = require('body-parser');
 // source in router
-const listRouter = require('./modules/list.router');
+const router = require('./modules/list.router');
 
 // declare app
 const app = express();
@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // /todo -> correct router
-app.use('/todo', listRouter);
+app.use('/todo', router);
 
 // server back static files by default
 app.use(express.static('server/public'));
