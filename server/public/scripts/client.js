@@ -12,8 +12,8 @@ $(document).ready(function () {
 })
 
 function addNewItem() {
-    let newItem = { 
-        listItem: $('#listItemIn').val() 
+    let newItem = {
+        listItem: $('#listItemIn').val()
     }
     console.log('Submit clicked', newItem);
 
@@ -21,18 +21,18 @@ function addNewItem() {
         type: 'POST',
         url: '/todo',
         data: newItem
-    }).then(function(response) {
+    }).then(function (response) {
         console.log('response from server:', response);
         getList();
         clearInput();
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log('error in POST:', error);
         alert('unable to add new item, please try again later')
     });
 }
 
-function clearInput(){
-    $('#listItemIn').val(''); 
+function clearInput() {
+    $('#listItemIn').val('');
 }
 
 function getList() {
@@ -63,7 +63,7 @@ function renderList(response) {
     }
 }
 
-function markAsComplete(){
+function markAsComplete() {
     let itemId = $(this).data('id');
     let isComplete = $(this).attr("id");
     console.log('clicked!', itemId, isComplete);
@@ -74,16 +74,16 @@ function markAsComplete(){
             isComplete: isComplete
         }
     })
-    .then(response => {
-        getList();
-    })
-    .catch(error => {
-        console.log('error on action item complete', error);
-    });
+        .then(response => {
+            getList();
+        })
+        .catch(error => {
+            console.log('error on action item complete', error);
+        });
 }
 
-function deleteHandler(){
-    deleteItem( $(this).data("id") );
+function deleteHandler() {
+    deleteItem($(this).data("id"));
 }
 
 function deleteItem(itemId) {
@@ -91,13 +91,13 @@ function deleteItem(itemId) {
         method: 'DELETE',
         url: `/todo/${itemId}`
     })
-    .then(response => {
-        console.log('deleted item');
-        getList();
-    })
-    .catch(error => {
-        alert(`Error on delete`, error);
-    });
+        .then(response => {
+            console.log('deleted item');
+            getList();
+        })
+        .catch(error => {
+            alert(`Error on delete`, error);
+        });
 }
 
 

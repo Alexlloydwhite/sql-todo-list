@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "todo-list" ORDER BY "id";';
     //sending query to PG..
     pool.query(queryText).then(result => {
-            res.send(result.rows);
-        })
+        res.send(result.rows);
+    })
         // on error catch and display error
         .catch(error => {
             console.log('error getting todo list', error);
@@ -49,29 +49,29 @@ router.put('/:id', (req, res) => {
 
     let queryText = ``;
 
-    if ( isComplete === "false"){
+    if (isComplete === "false") {
         queryText = `UPDATE "todo-list" SET "isComplete" = true WHERE "id" = $1;`
     }
-    if ( isComplete == "true"){
+    if (isComplete == "true") {
         queryText = `UPDATE "todo-list" SET "isComplete" = false WHERE "id" = $1;`
 
     }
-    
+
     pool.query(queryText, [itemId])
-    .then(response => {
-        res.sendStatus(200);
-    })
-    .catch(error => {
-        console.log('error', error);
-        res.sendStatus(500);
-    })
+        .then(response => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log('error', error);
+            res.sendStatus(500);
+        })
 })
 
 router.delete('/:id', (req, res) => {
     const itemToDelete = req.params.id;
     const queryText = `DELETE FROM "todo-list" WHERE id=$1;`;
 
-    pool.query( queryText, [itemToDelete] )
+    pool.query(queryText, [itemToDelete])
         .then(result => {
             res.sendStatus(200);
         })
