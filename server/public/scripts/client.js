@@ -1,8 +1,30 @@
 console.log('JS');
 $(document).ready(function () {
     console.log('JQ');
+    // on page load, displays db
     getList();
+    // click listener to add new action item
+    $('#submitBtn').on('click', addNewItem)
 })
+
+function addNewItem() {
+    let newItem = { 
+        listItem: $('#listItemIn').val() 
+    }
+    console.log('Submit clicked', newItem);
+
+    $.ajax({
+        type: 'POST',
+        url: '/todo',
+        data: newItem
+    }).then(function(response) {
+        console.log('response from server:', response);
+        getList();
+    }).catch(function(error) {
+        console.log('error in POST:', error);
+        alert('unable to add new item, please try again later')
+    });
+}
 
 function getList() {
     $.ajax({
