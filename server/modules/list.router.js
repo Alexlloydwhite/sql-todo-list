@@ -19,4 +19,26 @@ router.get('/', (req, res) => {
         });
 });
 
+// Adds a new action item to the todo list.
+router.post('/', (req, res) => {
+    // new item = incoming item from client.
+    let newItem = req.body;
+    console.log('adding new item:', newItem);
+
+    // SQL query to add new action item
+    let queryText = `INSERT INTO "todo-list" ("list-item")
+                        VALUES ($1);`;
+    pool.query(queryText, [newItem.item-list])
+        .then(result => {
+            // sending status 201, confirming that item was added
+            res.sendStatus(201);
+        })
+        .catch(error => {
+            console.log(`error adding new item`, error);
+            // status 500 = Internal Server Error
+            res.sendStatus(500);
+        });
+});
+
+// export this module!
 module.exports = router;
