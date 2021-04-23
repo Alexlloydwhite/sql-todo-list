@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     console.log('adding new item:', newItem);
 
     // SQL query to add new action item
-    let queryText = `INSERT INTO "todo-list" ("list-item")
+    let queryText = `INSERT INTO "todo-list" ("listItem")
                         VALUES ($1);`;
     pool.query(queryText, [newItem.listItem])
         .then(result => {
