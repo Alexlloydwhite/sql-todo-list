@@ -7,6 +7,8 @@ $(document).ready(function () {
     $('#submitBtn').on('click', addNewItem);
     // click listener to delete item from db
     $('.outPut').on('click', '.delete-item', deleteHandler);
+    // click listener to mark action item as complete TODO - Toggle!!
+    $('.outPut').on('click', '.listItem', markAsComplete);
 })
 
 function addNewItem() {
@@ -51,7 +53,7 @@ function renderList(response) {
 
     for (let i = 0; i < response.length; i++) {
         let newRow = $(`
-            <div data-id="${response[i].id}" <p>${response[i].listItem}
+            <div class="listItem" id="${response[i].isComplete}" data-id="${response[i].id}" <p>${response[i].listItem}
             <button type="button" class="delete-item" data-id="${response[i].id}">
                 Delete
             </button></p>
@@ -59,6 +61,25 @@ function renderList(response) {
         // for each action item, append a new div
         $('.outPut').append(newRow);
     }
+}
+
+function markAsComplete(){
+    let itemId = $(this).data('id');
+    let isComplete = $(this).attr("id");
+    console.log('clicked!', itemId, isComplete);
+    $.ajax({
+        method: 'PUT',
+        url: `/todo/${itemId}`,
+        data: {
+            isComplete: isComplete
+        }
+    })
+    .then(response => {
+        getList();
+    })
+    .catch(error => {
+        console.log('error on action item complete', error);
+    });
 }
 
 function deleteHandler(){
@@ -78,3 +99,8 @@ function deleteItem(itemId) {
         alert(`Error on delete`, error);
     });
 }
+
+
+// $(document).ready(function(){
+//     $("button").click(function(){
+//       $("p").css("color", "red");
