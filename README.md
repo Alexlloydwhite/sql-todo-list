@@ -10,7 +10,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 TODO:
 
-[ ] Create a Database titled 'weekend-do-do-app'
+[x] Create a Database titled 'weekend-to-do-app'
     - Table name [todo-list]
     - Create columns [id, list-item, is-complete(default false!)]
     - save database query as a file database.sql
