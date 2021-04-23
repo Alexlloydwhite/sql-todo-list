@@ -4,7 +4,9 @@ $(document).ready(function () {
     // on page load, displays db
     getList();
     // click listener to add new action item
-    $('#submitBtn').on('click', addNewItem)
+    $('#submitBtn').on('click', addNewItem);
+    // click listener to delete item from db
+    $('.outPut').on('click', '.delete-item', deleteHandler);
 })
 
 function addNewItem() {
@@ -57,4 +59,22 @@ function renderList(response) {
         // for each action item, append a new div
         $('.outPut').append(newRow);
     }
+}
+
+function deleteHandler(){
+    deleteItem( $(this).data("id") );
+}
+
+function deleteItem(itemId) {
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${itemId}`
+    })
+    .then(response => {
+        console.log('deleted item');
+        getList();
+    })
+    .catch(error => {
+        alert(`Error on delete`, error);
+    });
 }

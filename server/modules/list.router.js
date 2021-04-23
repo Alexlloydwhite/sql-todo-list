@@ -40,5 +40,19 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/:id', (req, res) => {
+    const itemToDelete = req.params.id;
+    const queryText = `DELETE FROM "todo-list" WHERE id=$1;`;
+
+    pool.query( queryText, [itemToDelete] )
+        .then(result => {
+            res.sendStatus(200);
+        })
+        .catch(error => {
+            console.log('delete failed:', error);
+            res.sendStatus(500);
+        })
+})
+
 // export this module!
 module.exports = router;
