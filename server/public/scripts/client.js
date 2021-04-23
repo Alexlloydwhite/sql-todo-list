@@ -20,10 +20,15 @@ function addNewItem() {
     }).then(function(response) {
         console.log('response from server:', response);
         getList();
+        clearInput();
     }).catch(function(error) {
         console.log('error in POST:', error);
         alert('unable to add new item, please try again later')
     });
+}
+
+function clearInput(){
+    $('#listItemIn').val(''); 
 }
 
 function getList() {
