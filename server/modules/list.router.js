@@ -41,41 +41,54 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    // pull item id from request and assign to variable
     let itemId = req.params.id;
+    // pull is complete boolean from request and assign to variable
     let isComplete = req.body.isComplete;
+    // fact checking..
     console.log('req.params:', req.params);
     console.log('req.params.id:', itemId);
     console.log('req.body.isComplete:', req.body.isComplete);
 
+    // blank query variable to be updated by conditional statement
     let queryText = ``;
 
+    // this code block checks the boolean value for isComplete and 
+    // makes a SQL query dependant on it. This is what allows toggle on client side!
     if (isComplete === "false") {
         queryText = `UPDATE "todo-list" SET "isComplete" = true WHERE "id" = $1;`
     }
     if (isComplete == "true") {
         queryText = `UPDATE "todo-list" SET "isComplete" = false WHERE "id" = $1;`
-
     }
 
+    // sending query to the pool to send to DB
     pool.query(queryText, [itemId])
         .then(response => {
+            // after query complete send status OK
             res.sendStatus(200);
         })
         .catch(error => {
+            // if error, log error and send status 'Internal Server Error!!' 
             console.log('error', error);
             res.sendStatus(500);
         })
 })
 
 router.delete('/:id', (req, res) => {
-    const itemToDelete = req.params.id;
-    const queryText = `DELETE FROM "todo-list" WHERE id=$1;`;
+    // pull item id from request and assign to variable 
+    let itemToDelete = req.params.id;
+    // SQL query text..
+    let queryText = `DELETE FROM "todo-list" WHERE id=$1;`;
 
+    // sends query to pool to send to server
     pool.query(queryText, [itemToDelete])
         .then(result => {
+            // after query complete send status OK
             res.sendStatus(200);
         })
         .catch(error => {
+            // if error, log error and send status 'Internal Server Error!'
             console.log('delete failed:', error);
             res.sendStatus(500);
         })
