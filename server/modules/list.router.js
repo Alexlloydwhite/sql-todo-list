@@ -43,9 +43,9 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     let itemId = req.params.id;
     let isComplete = req.body.isComplete;
-    console.log(itemId);
-    console.log(req.params);
-    console.log(req.body.isComplete);
+    console.log('req.params:', req.params);
+    console.log('req.params.id:', itemId);
+    console.log('req.body.isComplete:', req.body.isComplete);
 
     let queryText = ``;
 

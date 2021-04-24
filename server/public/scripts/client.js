@@ -99,8 +99,8 @@ function renderList(response) {
 }
 
 function markAsComplete() {
-    let itemId = $(this).data('id');
-    let isComplete = $(this).attr("id");
+    let itemId = $(this).data('id'); // this is the item's id, from SQL.
+    let isComplete = $(this).attr("id"); // this is the boolean.
     console.log('clicked!', itemId, isComplete);
     $.ajax({
         method: 'PUT',

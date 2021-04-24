@@ -54,7 +54,7 @@ li {
 li::before {
     display: inline-block; /* Needed to add space between the bullet and the text */
     content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: #af7eeb; /* Change the color */
+    color: white; /* Change the color */
     width: 2em; /* Also needed for space (tweak if needed) */
     margin-left: 0.5em; /* Also needed for space (tweak if needed) */
 }
@@ -62,6 +62,10 @@ li::before {
 li:hover {
     cursor: pointer;
     font-weight: bolder;
+}
+
+li:hover:before{
+    color: #af7eeb; /* Change the color */
 }
 
 #icons {
