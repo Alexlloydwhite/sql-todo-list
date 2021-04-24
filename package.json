@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Alexlloydwhite/sql-todo-list#readme",
   "dependencies": {
+    "bootstrap-icons": "^1.4.1",
     "express": "^4.17.1",
     "pg": "^8.6.0"
   }
