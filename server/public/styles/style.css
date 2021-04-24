@@ -22,10 +22,10 @@ header {
 .outPut {
     /* positioning */
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     padding-right: 75px;
     padding-left: 50px;
-    width: 250px;
+    width: 350px;
     /* shadow detail */
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -48,6 +48,7 @@ li {
     font-weight: lighter;
     color: #8c97b7;
     text-shadow: 0 0 1px #c5ccdc;
+    padding: 8px;
 }
 
 li::before {
@@ -63,12 +64,12 @@ li:hover {
     font-weight: bolder;
 }
 
-#delete-item {
+#icons {
    float: right;
    color: gray;
 }
 
-#submitBtn {
+#inputIcons {
     float: right;
     color: grey;
 }
@@ -96,8 +97,8 @@ li:hover {
     font-size: 15px;
 
     /* display button center and on border of parent */
-    margin-right: 30%;
-    margin-left: 30%;
+    margin-right: 35%;
+    margin-left: 35%;
     position: relative;
     top: -22px;
 
