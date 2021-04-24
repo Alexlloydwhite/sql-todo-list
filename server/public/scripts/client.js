@@ -115,8 +115,3 @@ function deleteItem(itemId) {
             alert(`Error on delete`, error);
         });
 }
-
-
-// $(document).ready(function(){
-//     $("button").click(function(){
-//       $("p").css("color", "red");

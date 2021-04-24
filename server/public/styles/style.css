@@ -6,6 +6,11 @@ body {
     background-color: #e3e9ff;
 }
 
+header {
+    /* centers the header above list output */
+    text-align: center;
+}
+
 #outputDiv{
     /* centers the div */
     position: fixed;
@@ -15,12 +20,13 @@ body {
 }
 
 .outPut {
-    /* border & shadow detail */
+    /* positioning */
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 75px;
     padding-left: 50px;
     width: 250px;
+    /* shadow detail */
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -29,7 +35,6 @@ body {
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12)
     ;
-
     /* background white */
     background-color:white;
 }
@@ -102,4 +107,5 @@ li:hover {
 
 #listItemIn {
     border: none;
+    color: #8c97b7;
 }
