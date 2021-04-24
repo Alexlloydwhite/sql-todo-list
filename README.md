@@ -10,21 +10,10 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 TODO:
 
-[x] Create a Database titled 'weekend-to-do-app'
-    - Table name [todo-list]
-    - Create columns [id, list-item, is-complete(default false!)]
-    - save database query as a file database.sql
-
-[ ] Server side Logic
-    - GET, POST, DELETE, PUT routes
-    - Express, node
-    - pool
-    - all as routers
-
-[ ] Client Side Logic
-    - initial HTML set up
-    - jQuery 
-
 [ ] Styling 
-    - figure out WTF bootstrap is..
     - make it look like todo-list-example.png 
+
+[ ] Edit functionality 
+    [ ] create edit buttons
+    [ ] ajax 
+    [ ] then what!
