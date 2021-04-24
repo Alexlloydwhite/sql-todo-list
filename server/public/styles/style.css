@@ -1,3 +1,94 @@
 #true {
     text-decoration: line-through;
 }
+
+body {
+    background-color: #e3e9ff;
+}
+
+#outputDiv{
+    /* centers the div */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.outPut {
+    /* border & shadow detail */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 75px;
+    padding-left: 50px;
+    width: 250px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+    ;
+
+    /* background white */
+    background-color:white;
+}
+
+header {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    font-weight: lighter;
+    color: #8c97b7;
+    text-shadow: 0 0 1px #c5ccdc;
+}
+
+li::before {
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #af7eeb; /* Change the color */
+    width: 2em; /* Also needed for space (tweak if needed) */
+    margin-left: 0.5em; /* Also needed for space (tweak if needed) */
+}
+
+li:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+#delete-item {
+   float: right;
+   color: gray;
+}
+
+#newTaskBtn {
+    /* styling to make btn look super hip */
+    background-color: #af7eeb;
+    border: none;
+    border-radius: 20px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+    ;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 15px;
+
+    /* display button center and on border of parent */
+    margin-right: 30%;
+    margin-left: 30%;
+    position: relative;
+    top: -22px;
+}
+
+#newTaskBtn:hover{
+    cursor: pointer;
+    opacity: 1;
+}
