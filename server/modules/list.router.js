@@ -65,6 +65,8 @@ router.put('/:id', (req, res) => {
         queryText = `UPDATE "todo-list" SET "isComplete" = false WHERE "id" = $1;`
     }
     
+    // the code clock executes if edited item was sent
+    // changes value of listItem in db to whatever the edited value is
     if(editedListItem){
         queryText = `UPDATE "todo-list" SET "listItem" = '${editedListItem}' WHERE "id" = $1;`
     }
