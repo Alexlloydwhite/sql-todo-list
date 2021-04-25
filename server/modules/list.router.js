@@ -50,6 +50,9 @@ router.put('/:id', (req, res) => {
     console.log('req.params.id:', itemId);
     console.log('req.body.isComplete:', req.body.isComplete);
 
+    let editedListItem = req.body.editedListItem
+    console.log(editedListItem);
+
     // blank query variable to be updated by conditional statement
     let queryText = ``;
 
@@ -60,6 +63,10 @@ router.put('/:id', (req, res) => {
     }
     if (isComplete == "true") {
         queryText = `UPDATE "todo-list" SET "isComplete" = false WHERE "id" = $1;`
+    }
+    
+    if(editedListItem){
+        queryText = `UPDATE "todo-list" SET "listItem" = '${editedListItem}' WHERE "id" = $1;`
     }
 
     // sending query to the pool to send to DB
