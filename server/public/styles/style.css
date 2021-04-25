@@ -6,17 +6,28 @@ body {
     background-color: #e3e9ff;
 }
 
-header {
-    /* centers the header above list output */
-    text-align: center;
+header, main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#outputDiv{
-    /* centers the div */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.header {
+    text-align: center;
+    color:white;
+    background-color: #af7eeb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 125px;
+    padding-right: 130px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+    ;
 }
 
 .outPut {
@@ -78,10 +89,7 @@ li:hover:before{
     color: grey;
 }
 
-.inputForm {
-    padding-bottom: 20px;
-}
-
+/* New Task button! */
 #newTaskBtn {
     /* styling to make btn look super hip */
     background-color: #af7eeb;
@@ -110,7 +118,22 @@ li:hover:before{
     cursor: pointer;
 }
 
+/* container for listItemIn */
+.inputForm {
+    padding-bottom: 20px;
+}
+
+/* form for adding new item */
 #listItemIn {
     border: none;
+    color: #8c97b7;
+}
+
+/* form for editing item */
+.edit-input {
+    font-size: 16px;
+    border: solid 0.5px;
+    border-color: #af7eeb;
+    border-radius: 5px;
     color: #8c97b7;
 }
